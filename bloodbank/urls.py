@@ -18,60 +18,35 @@ from django.contrib import admin
 from django.urls import path
 from donor import views
 
-
 urlpatterns = [
-
     path('admin/', admin.site.urls),
 
-    path('', views.home),
+    # Home
+    path('', views.home, name='home'),
 
-    path('register/', views.register),
+    # Auth
+    path('register/', views.register, name='register'),
+    path('login/', views.user_login, name='login'),
+    path('logout/', views.user_logout, name='logout'),
 
-    path('search/', views.search),
+    # Search donor (IMPORTANT FIXED)
+    path('search/', views.search, name='search'),
 
-    path('dashboard/', views.dashboard),
+    # Dashboard
+    path('dashboard/', views.dashboard, name='dashboard'),
 
-    path(
-        'blood-request/',
-        views.blood_request
-    ),
+    # Blood request
+    path('blood-request/', views.blood_request, name='blood_request'),
 
-    path('login/', views.user_login),
+    # Donor management
+    path('donor-list/', views.donor_list, name='donor_list'),
+    path('update-donor/<int:id>/', views.update_donor, name='update_donor'),
+    path('delete-donor/<int:id>/', views.delete_donor, name='delete_donor'),
+    path('available-donors/', views.available_donors, name='available_donors'),
+    path('toggle-availability/<int:id>/', views.toggle_availability, name='toggle_availability'),
 
-    path('logout/', views.user_logout),
-
-    path(
-        'donor-list/',
-        views.donor_list
-    ),
-
-    path(
-        'update-donor/<int:id>/',
-        views.update_donor
-    ),
-    path(
-    'delete-donor/<int:id>/',
-    views.delete_donor
-    ),
-    path(
-    'available-donors/',
-    views.available_donors
-),
-path(
-    'toggle-availability/<int:id>/',
-    views.toggle_availability
-),
-path(
-    'request-list/',
-    views.request_list
-),
-path(
-    'complete-request/<int:id>/',
-    views.complete_request
-),
-
-path(
-    'delete-request/<int:id>/',
-    views.delete_request
-),
+    # Requests
+    path('request-list/', views.request_list, name='request_list'),
+    path('complete-request/<int:id>/', views.complete_request, name='complete_request'),
+    path('delete-request/<int:id>/', views.delete_request, name='delete_request'),
 ]
