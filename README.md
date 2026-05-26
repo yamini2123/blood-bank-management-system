@@ -4,24 +4,14 @@ A full-stack Django-based web application developed to manage blood donors, bloo
 
 ---
 
-### 🚀 Features
-# 1.Donor Registration System
-# 2.Secure Login & Logout Authentication
-# 3.Search Donors by Blood Group and City
-# 4.Manage Donors (Update/Delete)
-# 5.Available Donors Module
-# 6.Blood Request Management
-# 7.Blood Group Statistics Dashboard
-# 8.Responsive and Modern UI
-# 9.Mobile Number Validation
-# 10.Availability Toggle System
-### 📌 Modules Included
-### 👤 User Authentication
- # - Secure Login & Logout system
- # - Registration system
+## 🚀 Features
+
+### Authentication System
+- Secure Login & Logout
+- User Registration system
 
 ### Donor Management
-- Donor Registration
+- Add new donors
 - Update donor details
 - Delete donor records
 - Toggle donor availability
@@ -34,16 +24,21 @@ A full-stack Django-based web application developed to manage blood donors, bloo
 - Raise blood requests
 - Track request status
 
-###  Dashboard
+### 📊 Dashboard
 - Total donors count
 - Available donors count
 - Blood group statistics
 
+### 📱 Other Features
+- Mobile number validation
+- Responsive UI design
+
 ---
 
 ## 🛠️ Technologies Used
-- Python
-- Django
+
+- Python 
+- Django 
 - HTML5
 - CSS3
 - Bootstrap
@@ -53,15 +48,13 @@ A full-stack Django-based web application developed to manage blood donors, bloo
 
 ## 📁 Project Structure
 bloodbank/
-│
-├── donor/
-├── templates/
-├── static/
-├── db.sqlite3
-├── manage.py
-└── requirements.txt
+│── donor/
+│── templates/
+│── static/
+│── db.sqlite3
+│── manage.py
+│── requirements.txt
 ### Future Enhancements
-
-1.Admin Dashboard
-2.API Integration
-3.Deployment on Render/Heroku
+ * Online blood request approval system
+ * Admin dashboard API integration
+ * Deployment on cloud (AWS/Render/Heroku)
