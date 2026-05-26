@@ -9,9 +9,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ---------------- SECURITY ----------------
 SECRET_KEY = "django-insecure-fallback-key-change-this"
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "blood-bank-management-system-cili.onrender.com",
+    "localhost",
+    "127.0.0.1"
+]
 
 # ---------------- APPLICATIONS ----------------
 INSTALLED_APPS = [
