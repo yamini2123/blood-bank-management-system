@@ -22,19 +22,24 @@ SQLite3
 Bootstrap / Custom Styling
 
 ** Modules Included
+
+
 👨‍⚕️ Donor Module
 Register donor
 Update donor details
 Delete donor
 Toggle donor availability
 🔍 Search Module
+
 Search donors using:
 Blood Group
 City
 🩸 Blood Request Module
+
 Raise blood requests
 Track request status
 📊 Dashboard Module
+
 Total donors count
 Available donors count
 Blood group statistics
