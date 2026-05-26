@@ -12,7 +12,7 @@ SECRET_KEY = "django-insecure-fallback-key-change-this"
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "blood-bank-management-system-cili.onrender.com",
+    ".onrender.com",
     "localhost",
     "127.0.0.1"
 ]
