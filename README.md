@@ -45,16 +45,6 @@ A full-stack Django-based web application developed to manage blood donors, bloo
 - SQLite3
 
 ---
-### Project Structure
-bloodbank/
-│
-├── donor/
-├── templates/
-├── static/
-├── db.sqlite3
-├── manage.py
-└── requirements.txt
-
 ### Future Enhancements
  * Online blood request approval system
  * Admin dashboard API integration
@@ -62,6 +52,5 @@ bloodbank/
 
 ---
 ### Developed By
-
-Yamini
+ Unnam Yamini
 
