@@ -59,13 +59,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bloodbank.wsgi.application'
 
-# ---------------- DATABASE (ONLY SQLITE) ----------------
+# ---------------- DATABASE (SQLite ONLY) ----------------
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# ---------------- AUTH SETTINGS (IMPORTANT FIX) ----------------
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/dashboard/'
+LOGOUT_REDIRECT_URL = '/login/'
 
 # ---------------- PASSWORD VALIDATION ----------------
 AUTH_PASSWORD_VALIDATORS = [
