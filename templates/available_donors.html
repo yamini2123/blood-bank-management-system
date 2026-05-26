@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>
+        Available Donors
+    </title>
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:#f4f4f4;
+            padding:30px;
+        }
+
+        h1{
+            text-align:center;
+            color:red;
+            margin-bottom:30px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+        }
+
+        th, td{
+            padding:15px;
+            border:1px solid #ddd;
+            text-align:center;
+        }
+
+        th{
+            background:red;
+            color:white;
+        }
+
+        tr:hover{
+            background:#f1f1f1;
+        }
+
+        .btn{
+            display:inline-block;
+            margin-top:20px;
+            padding:10px 20px;
+            background:red;
+            color:white;
+            text-decoration:none;
+            border-radius:5px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>
+
+        Available Donors
+
+    </h1>
+
+    <table>
+
+        <tr>
+
+            <th>Name</th>
+
+            <th>Blood Group</th>
+
+            <th>City</th>
+
+            <th>Mobile</th>
+
+        </tr>
+
+        {% for donor in donors %}
+
+        <tr>
+
+            <td>
+                {{ donor.name }}
+            </td>
+
+            <td>
+                {{ donor.blood_group }}
+            </td>
+
+            <td>
+                {{ donor.city }}
+            </td>
+
+            <td>
+                {{ donor.mobile }}
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <center>
+
+        <a href="/dashboard/" class="btn">
+
+            Back to Dashboard
+
+        </a>
+
+    </center>
+
+</body>
+
+</html>

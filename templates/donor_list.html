@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>
+        Donor List
+    </title>
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:#f4f4f4;
+        }
+
+        h1{
+            text-align:center;
+            color:red;
+        }
+
+        table{
+            width:90%;
+            margin:auto;
+            border-collapse:collapse;
+            background:white;
+        }
+
+        th, td{
+            border:1px solid black;
+            padding:10px;
+            text-align:center;
+        }
+
+        th{
+            background:red;
+            color:white;
+        }
+
+        a{
+            text-decoration:none;
+            padding:8px 12px;
+            color:white;
+            border-radius:5px;
+        }
+
+        .edit{
+            background:green;
+        }
+
+        .delete{
+            background:red;
+        }
+        .edit-btn{
+
+    background:#3498db;
+
+    color:white;
+
+    padding:8px 14px;
+
+    text-decoration:none;
+
+    border-radius:5px;
+
+    margin-right:10px;
+
+    font-weight:bold;
+}
+
+.edit-btn:hover{
+
+    background:#2980b9;
+}
+
+.delete-btn{
+
+    background:#e74c3c;
+
+    color:white;
+
+    padding:8px 14px;
+
+    text-decoration:none;
+
+    border-radius:5px;
+
+    font-weight:bold;
+}
+
+.delete-btn:hover{
+
+    background:#c0392b;
+}
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>
+
+        Donor List
+
+    </h1>
+
+    <table>
+
+        <tr>
+
+            <th>ID</th>
+            <th>Name</th>
+            <th>Blood Group</th>
+            <th>City</th>
+            <th>Mobile</th>
+            <th>Status</th>
+            <th>Action</th>
+
+        </tr>
+
+        {% for donor in donors %}
+
+        <tr>
+
+            <td>
+                {{ donor.id }}
+            </td>
+
+            <td>
+                {{ donor.name }}
+            </td>
+
+            <td>
+                {{ donor.blood_group }}
+            </td>
+
+            <td>
+                {{ donor.city }}
+            </td>
+
+            <td>
+                {{ donor.mobile }}
+                <td>
+
+    {% if donor.available %}
+
+        <span style="color:green;font-weight:bold;">
+
+            Available
+
+        </span>
+
+    {% else %}
+
+        <span style="color:red;font-weight:bold;">
+
+            Not Available
+
+        </span>
+
+    {% endif %}
+
+</td>
+            </td>
+
+           <td>
+
+    <a href="/update-donor/{{ donor.id }}/" class="edit-btn">
+
+        Edit
+
+    </a>
+
+    <a href="/delete-donor/{{ donor.id }}/" class="delete-btn">
+
+        Delete
+
+    </a>
+
+</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+
+</html>

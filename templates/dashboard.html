@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>
+        Blood Bank Dashboard
+    </title>
+
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+
+            font-family:'Roboto', sans-serif;
+
+            background:#f5f7fa;
+
+            min-height:100vh;
+        }
+
+        .navbar{
+
+            background:#ff416c;
+
+            color:white;
+
+            padding:20px 40px;
+
+            display:flex;
+
+            justify-content:space-between;
+
+            align-items:center;
+
+            box-shadow:0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo{
+
+            font-size:30px;
+
+            font-family:'Poppins', sans-serif;
+
+            font-weight:600;
+        }
+
+        .auth-buttons a{
+
+            text-decoration:none;
+
+            color:white;
+
+            background:#ff1e56;
+
+            padding:10px 20px;
+
+            border-radius:8px;
+
+            margin-left:10px;
+
+            font-weight:bold;
+
+            transition:0.3s;
+        }
+
+        .auth-buttons a:hover{
+
+            background:white;
+
+            color:#ff416c;
+        }
+
+        .menu{
+
+            display:flex;
+
+            justify-content:center;
+
+            gap:20px;
+
+            padding:20px;
+
+            background:white;
+
+            box-shadow:0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .menu a{
+
+            text-decoration:none;
+
+            color:white;
+
+            background:#ff416c;
+
+            padding:12px 25px;
+
+            border-radius:10px;
+
+            font-weight:bold;
+
+            transition:0.3s;
+        }
+
+        .menu a:hover{
+
+            background:#ff1e56;
+
+            transform:translateY(-3px);
+        }
+
+        .container{
+
+            width:90%;
+
+            margin:auto;
+
+            margin-top:40px;
+        }
+
+        .stats-card{
+
+            background:white;
+
+            margin-top:40px;
+
+            padding:30px;
+
+            border-radius:20px;
+
+            box-shadow:0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .stats-card h2{
+
+            text-align:center;
+
+            color:#ff416c;
+
+            margin-bottom:20px;
+
+            font-family:'Poppins', sans-serif;
+        }
+
+        table{
+
+            width:100%;
+
+            border-collapse:collapse;
+        }
+
+        table th{
+
+            background:#ff416c;
+
+            color:white;
+
+            padding:15px;
+        }
+
+        table td{
+
+            padding:15px;
+
+            text-align:center;
+
+            border-bottom:1px solid #ddd;
+        }
+
+        table tr:hover{
+
+            background:#f9f9f9;
+        }
+
+        .welcome-card{
+
+            background:white;
+
+            border-radius:20px;
+
+            padding:45px;
+
+            text-align:center;
+
+            color:#333;
+
+            margin-bottom:35px;
+
+            box-shadow:0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .welcome-card h1{
+
+            font-family:'Poppins', sans-serif;
+
+            font-size:42px;
+
+            color:#ff416c;
+
+            margin-bottom:15px;
+        }
+
+        .welcome-card p{
+
+            font-size:20px;
+
+            color:#555;
+        }
+
+        .cards{
+
+            display:flex;
+
+            justify-content:center;
+
+            gap:30px;
+
+            flex-wrap:wrap;
+        }
+
+        .card{
+
+            background:white;
+
+            width:280px;
+
+            padding:35px;
+
+            border-radius:20px;
+
+            text-align:center;
+
+            color:#333;
+
+            box-shadow:0 5px 20px rgba(0,0,0,0.08);
+
+            transition:0.3s;
+        }
+
+        .card:hover{
+
+            transform:translateY(-10px);
+
+            cursor:pointer;
+        }
+
+        .card h2{
+
+            font-family:'Poppins', sans-serif;
+
+            margin-bottom:20px;
+
+            color:#ff416c;
+
+            font-size:28px;
+        }
+
+        .card h1{
+
+            font-size:50px;
+
+            color:#222;
+        }
+
+        .card-link{
+
+            text-decoration:none;
+        }
+
+        .buttons{
+
+            margin-top:45px;
+
+            text-align:center;
+        }
+
+        .btn{
+
+            display:inline-block;
+
+            padding:14px 28px;
+
+            margin:15px;
+
+            background:#ff416c;
+
+            color:white;
+
+            text-decoration:none;
+
+            border-radius:10px;
+
+            font-weight:bold;
+
+            transition:0.3s;
+
+            box-shadow:0 5px 10px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover{
+
+            background:#ff1e56;
+
+            transform:translateY(-5px);
+        }
+
+        .footer{
+
+            margin-top:60px;
+
+            text-align:center;
+
+            padding:20px;
+
+            color:white;
+
+            background:#ff416c;
+
+            font-size:18px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <div class="logo">
+
+            BLOOD BANK MANAGEMENT SYSTEM
+
+        </div>
+
+        <div class="auth-buttons">
+
+            {% if user.is_authenticated %}
+
+                <a href="/logout/">
+                    Logout
+                </a>
+
+            {% else %}
+
+                <a href="/login/">
+                    Login
+                </a>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <div class="menu">
+
+        <a href="/">Home</a>
+
+        <a href="/register/">Register</a>
+
+        <a href="/search/">Search</a>
+
+        <a href="/donor-list/">Donors</a>
+
+    </div>
+
+    <div class="container">
+
+        <div class="welcome-card">
+
+            <h1>
+
+                Welcome to Blood Bank Dashboard
+
+            </h1>
+
+            <p>
+
+                Save Lives by Donating Blood ❤️
+
+            </p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h2>
+
+                    Total Donors
+
+                </h2>
+
+                <h1>
+
+                    {{ total_donors }}
+
+                </h1>
+
+            </div>
+
+            <a href="/available-donors/" class="card-link">
+
+                <div class="card">
+
+                    <h2>
+
+                        Available Donors
+
+                    </h2>
+
+                    <h1>
+
+                        {{ available_donors }}
+
+                    </h1>
+
+                </div>
+
+            </a>
+
+        </div>
+
+        <div class="stats-card">
+
+            <h2>
+                Blood Group Statistics
+            </h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Blood Group</th>
+
+                    <th>Total Donors</th>
+
+                </tr>
+
+                {% for group in blood_groups %}
+
+                <tr>
+
+                    <td>
+                        {{ group.blood_group }}
+                    </td>
+
+                    <td>
+                        {{ group.total }}
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+        <div class="buttons">
+
+            <a href="/register/" class="btn">
+
+                Register Donor
+
+            </a>
+
+            <a href="/search/" class="btn">
+
+                Search Donor
+
+            </a>
+
+            <a href="/blood-request/" class="btn">
+
+                Blood Request
+
+            </a>
+
+            <a href="/donor-list/" class="btn">
+
+                Manage Donors
+
+            </a>
+            <a href="/request-list/" class="btn">
+
+    Blood Requests list
+
+</a>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+
+        Blood Bank Management System © 2026
+
+    </div>
+
+</body>
+
+</html>
