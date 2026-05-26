@@ -46,46 +46,6 @@ A full-stack Django-based web application developed to manage blood donors, bloo
 
 ---
 
-## 📁 Project Structure
-BLOODBANK/
-│
-├── bloodbank/                
-│   ├── __pycache__/
-│   ├── __init__.py
-│   ├── asgi.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-│
-├── donor/                    
-│   ├── __pycache__/
-│   ├── migrations/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── forms.py
-│   ├── models.py
-│   ├── tests.py
-│   └── views.py
-│
-├── templates/                
-│   ├── available_donors.html
-│   ├── blood_request.html
-│   ├── dashboard.html
-│   ├── donor_list.html
-│   ├── home.html
-│   ├── login.html
-│   ├── register.html
-│   ├── request_list.html
-│   ├── search.html
-│   └── update_donor.html
-│
-├── static/                   
-├── db.sqlite3               
-├── manage.py
-├── README.md
-├── LICENSE
-└── .gitignore
 ### Future Enhancements
  * Online blood request approval system
  * Admin dashboard API integration
